@@ -1,0 +1,25 @@
+{
+  "name": "angular-dynamic-table",
+  "version": "1.0.0",
+  "description": "A high-performance Angular standalone table component with virtualization, sorting, resizing, and frozen columns",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "serve": "ng serve"
+  },
+  "keywords": ["angular", "table", "virtualization", "performance", "standalone", "component"],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.0",
+    "typescript": "~5.2.0"
+  }
+}

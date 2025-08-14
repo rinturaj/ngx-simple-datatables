@@ -1,0 +1,93 @@
+<div class="dynamic-table-container" #tableContainer>
+  <!-- Sticky Header -->
+  <div class="table-header" [style.height.px]="headerHeight">
+    <div class="header-row" #headerRow>
+      <!-- Left Frozen Columns -->
+      <div class="frozen-left" [style.width.px]="getLeftFrozenWidth()" *ngIf="leftFrozenColumns.length > 0">
+        <div 
+          class="header-cell" 
+          *ngFor="let column of leftFrozenColumns; trackBy: trackByColumnField"
+          [style.width]="getColumnWidth(column)"
+          [class.sortable]="column.sortable"
+          (click)="onSort(column)">
+          <span class="header-text">{{ column.header }}</span>
+          <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
+          <div class="resize-handle" (mousedown)="onResizeStart($event, column)"></div>
+        </div>
+      </div>
+
+      <!-- Center Scrollable Columns -->
+      <div class="center-columns">
+        <div 
+          class="header-cell" 
+          *ngFor="let column of centerColumns; trackBy: trackByColumnField"
+          [style.width]="getColumnWidth(column)"
+          [class.sortable]="column.sortable"
+          (click)="onSort(column)">
+          <span class="header-text">{{ column.header }}</span>
+          <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
+          <div class="resize-handle" (mousedown)="onResizeStart($event, column)"></div>
+        </div>
+      </div>
+
+      <!-- Right Frozen Columns -->
+      <div class="frozen-right" [style.width.px]="getRightFrozenWidth()" *ngIf="rightFrozenColumns.length > 0">
+        <div 
+          class="header-cell" 
+          *ngFor="let column of rightFrozenColumns; trackBy: trackByColumnField"
+          [style.width]="getColumnWidth(column)"
+          [class.sortable]="column.sortable"
+          (click)="onSort(column)">
+          <span class="header-text">{{ column.header }}</span>
+          <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
+          <div class="resize-handle" (mousedown)="onResizeStart($event, column)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Body with Virtual Scrolling -->
+  <div class="table-body" #tableBody [style.height]="'calc(100% - ' + headerHeight + 'px)'">
+    <!-- Virtual spacer for total height -->
+    <div class="virtual-spacer" [style.height.px]="totalHeight"></div>
+    
+    <!-- Visible rows container -->
+    <div class="visible-rows" [style.transform]="'translateY(' + offsetY + 'px)'">
+      <div 
+        class="table-row" 
+        *ngFor="let row of visibleRows; let i = index; trackBy: trackByRowIndex"
+        [style.height.px]="rowHeight">
+        
+        <!-- Left Frozen Columns -->
+        <div class="frozen-left" [style.width.px]="getLeftFrozenWidth()" *ngIf="leftFrozenColumns.length > 0">
+          <div 
+            class="table-cell" 
+            *ngFor="let column of leftFrozenColumns; trackBy: trackByColumnField"
+            [style.width]="getColumnWidth(column)">
+            {{ getCellValue(row, column) }}
+          </div>
+        </div>
+
+        <!-- Center Scrollable Columns -->
+        <div class="center-columns">
+          <div 
+            class="table-cell" 
+            *ngFor="let column of centerColumns; trackBy: trackByColumnField"
+            [style.width]="getColumnWidth(column)">
+            {{ getCellValue(row, column) }}
+          </div>
+        </div>
+
+        <!-- Right Frozen Columns -->
+        <div class="frozen-right" [style.width.px]="getRightFrozenWidth()" *ngIf="rightFrozenColumns.length > 0">
+          <div 
+            class="table-cell" 
+            *ngFor="let column of rightFrozenColumns; trackBy: trackByColumnField"
+            [style.width]="getColumnWidth(column)">
+            {{ getCellValue(row, column) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
