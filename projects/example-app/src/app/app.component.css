@@ -1,0 +1,14 @@
+.app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.table-wrapper {
+  height: 600px;
+  margin-top: 20px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}

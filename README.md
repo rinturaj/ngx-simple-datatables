@@ -1,30 +1,27 @@
-# Image Analysis
+# NgxSimpleDatatableWorkspace
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/rintu-rajcs-projects/v0-image-analysis)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/q3k55QxJayo)
+## Development server
 
-## Overview
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Code scaffolding
 
-## Deployment
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Your project is live at:
+## Build
 
-**[https://vercel.com/rintu-rajcs-projects/v0-image-analysis](https://vercel.com/rintu-rajcs-projects/v0-image-analysis)**
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Build your app
+## Running unit tests
 
-Continue building your app on:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-**[https://v0.app/chat/projects/q3k55QxJayo](https://v0.app/chat/projects/q3k55QxJayo)**
+## Running end-to-end tests
 
-## How It Works
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

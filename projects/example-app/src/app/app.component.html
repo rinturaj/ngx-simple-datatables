@@ -1,0 +1,25 @@
+<div class="app-container">
+  <h1>Dynamic Table Example</h1>
+  <div class="table-wrapper">
+    <ngx-simple-datatable [columns]="columns" [data]="data" [rowHeight]="20" [headerHeight]="30">
+      <ng-template #headerTemplate let-column="column">
+        <span>{{ column?.header }}</span>
+      </ng-template>
+      <ng-template #cellTemplate let-row="row" let-column="column">
+        <div [ngSwitch]="column.field">
+          <div *ngSwitchCase="'id'">
+            <b>{{ row[column.field] }}</b>
+          </div>
+          <div *ngSwitchDefault>
+            <span>{{ row[column.field] | json }}</span>
+          </div>
+          <div *ngSwitchCase="'actions'">
+            <button>{{ row[column.field] }}</button>
+          </div>
+        </div>
+
+      </ng-template>
+    </ngx-simple-datatable>
+
+  </div>
+</div>
