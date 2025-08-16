@@ -1,10 +1,11 @@
 {
   "name": "ngx-simple-datatable-workspace",
-  "version": "0.0.0",
+  "version": "1.17.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:lib": "ng build ngx-simple-datatable --watch",
+    "build:lib": "ng build ngx-simple-datatable",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
