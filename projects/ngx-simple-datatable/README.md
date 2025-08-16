@@ -1,7 +1,6 @@
 # NgxSimpleDatatable
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
-.
 
 ## Features
 
