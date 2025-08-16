@@ -213,7 +213,7 @@ export class NgxSimpleDatatableComponent
     if (!this.tableContainer || !this.tableBody) return;
 
     // Update container height based on available space
-    const container = this.tableContainer.nativeElement;
+    const container = this.tableBody.nativeElement;
     this.containerHeight = container.clientHeight - this.headerHeight;
     this.totalHeight = this.data.length * this.rowHeight;
 
@@ -240,6 +240,8 @@ export class NgxSimpleDatatableComponent
       this.visibleStartIndex,
       this.visibleEndIndex + 1
     );
+
+    console.log(scrollTop, this.visibleStartIndex, this.visibleEndIndex);
 
     // Update vertical offset for virtual scrolling
     this.offsetY = this.visibleStartIndex * this.rowHeight;
@@ -458,7 +460,7 @@ export class NgxSimpleDatatableComponent
 
     const { key, ctrlKey, shiftKey } = event;
     const scrollAmount = shiftKey ? 100 : 30; // Larger scroll with shift key
-
+    console.log(key);
     switch (key) {
       case "ArrowLeft":
         this.tableContainer.nativeElement.scrollLeft -= scrollAmount;
@@ -486,7 +488,7 @@ export class NgxSimpleDatatableComponent
           this.tableContainer.nativeElement.scrollTop += scrollAmount;
         }
         break;
-      case "Home":
+      case "1":
         if (ctrlKey) {
           this.tableContainer.nativeElement.scrollTo({
             top: 0,
@@ -500,7 +502,7 @@ export class NgxSimpleDatatableComponent
           });
         }
         break;
-      case "End":
+      case "0":
         if (ctrlKey) {
           this.tableContainer.nativeElement.scrollTo({
             top: this.tableContainer.nativeElement.scrollHeight,
