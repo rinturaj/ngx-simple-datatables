@@ -87,6 +87,33 @@ export class AppComponent {
 }
 ```
 
+4. add styles in your `styles.css`:
+
+```css
+:root {
+  --ngx-simple-dt-bg: #efefef;
+  --ngx-simple-dt-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-border-radius: 8px;
+  --ngx-simple-dt-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --ngx-simple-dt-transition: all 0.2s ease-in-out;
+
+  --ngx-simple-dt-header-bg: #98ccff;
+  --ngx-simple-dt-header-hover-bg: #e9ecef;
+  --ngx-simple-dt-header-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-header-text: #495057;
+  --ngx-simple-dt-header-height: 48px;
+  --ngx-simple-dt-header-font-weight: 600;
+  --ngx-simple-dt-header-padding: 0 16px;
+
+  --ngx-simple-dt-cell-padding: 0 16px;
+  --ngx-simple-dt-cell-border: 1px solid #e9ecef;
+  --ngx-simple-dt-cell-hover-bg: #f1f3f5;
+  --ngx-simple-dt-cell-active-bg: #e9ecef;
+  --ngx-simple-dt-cell-font-size: 0.875rem;
+  --ngx-simple-dt-cell-line-height: 1.5;
+}
+```
+
 ## Advanced Features
 
 ### Column Freezing
