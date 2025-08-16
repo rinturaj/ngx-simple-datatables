@@ -1,68 +1,67 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NgxSimpleDatatableComponent } from 'ngx-simple-datatable';
-import { ColumnConfig } from '../../../ngx-simple-datatable/src/interfaces/column-config.interface';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+import { NgxSimpleDatatableComponent } from "ngx-simple-datatable";
+import { ColumnConfig } from "../../../ngx-simple-datatable/src/interfaces/column-config.interface";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [NgxSimpleDatatableComponent, CommonModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  title = 'example-app';
+  title = "example-app";
   columns: ColumnConfig[] = [
     {
-      field: 'id',
-      header: 'ID',
-      width: '80px',
-      freeze: 'left',
+      field: "id",
+      header: "ID",
+      width: "80px",
+      freeze: "left",
       sortable: true,
     },
     {
-      field: 'name',
-      header: 'Name',
-      width: '200px',
-      freeze: 'left',
+      field: "name",
+      header: "Name",
+      width: "200px",
+      freeze: "left",
       sortable: true,
     },
-    { field: 'email', header: 'Email', width: '250px', sortable: true },
-    { field: 'phone', header: 'Phone', width: '150px', sortable: true },
-    { field: 'company', header: 'Company', width: '200px', sortable: true },
-    { field: 'position', header: 'Position', width: '180px', sortable: true },
+    { field: "email", header: "Email", width: "250px", sortable: true },
+    { field: "phone", header: "Phone", width: "150px", sortable: true },
+    { field: "company", header: "Company", width: "200px", sortable: true },
+    { field: "position", header: "Position", width: "180px", sortable: true },
     {
-      field: 'salary',
-      header: 'Salary',
-      width: '120px',
+      field: "salary",
+      header: "Salary",
+      width: "120px",
       sortable: true,
       formatter: (value: { toLocaleString: () => any }) =>
         `$${value?.toLocaleString()}`,
     },
     {
-      field: 'department',
-      header: 'Department',
-      width: '150px',
+      field: "department",
+      header: "Department",
+      width: "150px",
       sortable: true,
     },
-    { field: 'location', header: 'Location', width: '150px', sortable: true },
+    { field: "location", header: "Location", width: "150px", sortable: true },
     {
-      field: 'startDate',
-      header: 'Start Date',
-      width: '120px',
+      field: "startDate",
+      header: "Start Date",
+      width: "120px",
       sortable: true,
       formatter: (value: string | number | Date) =>
         new Date(value).toLocaleDateString(),
     },
     {
-      field: 'status',
-      header: 'Status',
-      width: '100px',
-      freeze: 'right',
+      field: "status",
+      header: "Status",
+      width: "100px",
       sortable: true,
     },
-    { field: 'actions', header: 'Actions', width: '120px', freeze: 'right' },
+    { field: "actions", header: "Actions", width: "120px" },
   ];
 
   data: any[] = [];
@@ -73,56 +72,56 @@ export class AppComponent {
 
   private generateLargeDataset() {
     const names = [
-      'John Doe',
-      'Jane Smith',
-      'Bob Johnson',
-      'Alice Brown',
-      'Charlie Wilson',
-      'Diana Davis',
-      'Eve Miller',
-      'Frank Garcia',
+      "John Doe",
+      "Jane Smith",
+      "Bob Johnson",
+      "Alice Brown",
+      "Charlie Wilson",
+      "Diana Davis",
+      "Eve Miller",
+      "Frank Garcia",
     ];
     const companies = [
-      'TechCorp',
-      'DataSys',
-      'CloudInc',
-      'WebSoft',
-      'AppDev',
-      'CodeLab',
-      'DevStudio',
-      'TechFlow',
+      "TechCorp",
+      "DataSys",
+      "CloudInc",
+      "WebSoft",
+      "AppDev",
+      "CodeLab",
+      "DevStudio",
+      "TechFlow",
     ];
     const positions = [
-      'Developer',
-      'Designer',
-      'Manager',
-      'Analyst',
-      'Engineer',
-      'Consultant',
-      'Specialist',
-      'Director',
+      "Developer",
+      "Designer",
+      "Manager",
+      "Analyst",
+      "Engineer",
+      "Consultant",
+      "Specialist",
+      "Director",
     ];
     const departments = [
-      'Engineering',
-      'Design',
-      'Marketing',
-      'Sales',
-      'HR',
-      'Finance',
-      'Operations',
-      'Support',
+      "Engineering",
+      "Design",
+      "Marketing",
+      "Sales",
+      "HR",
+      "Finance",
+      "Operations",
+      "Support",
     ];
     const locations = [
-      'New York',
-      'San Francisco',
-      'London',
-      'Tokyo',
-      'Berlin',
-      'Sydney',
-      'Toronto',
-      'Amsterdam',
+      "New York",
+      "San Francisco",
+      "London",
+      "Tokyo",
+      "Berlin",
+      "Sydney",
+      "Toronto",
+      "Amsterdam",
     ];
-    const statuses = ['Active', 'Inactive', 'Pending', 'On Leave'];
+    const statuses = ["Active", "Inactive", "Pending", "On Leave"];
 
     // Generate 10,000 rows for performance testing
     for (let i = 1; i <= 10000; i++) {
@@ -132,7 +131,7 @@ export class AppComponent {
         email: `user${i}@example.com`,
         phone: `+1-555-${String(Math.floor(Math.random() * 10000)).padStart(
           4,
-          '0'
+          "0"
         )}`,
         company: companies[Math.floor(Math.random() * companies.length)],
         position: positions[Math.floor(Math.random() * positions.length)],
@@ -145,7 +144,7 @@ export class AppComponent {
           Math.floor(Math.random() * 28) + 1
         ),
         status: statuses[Math.floor(Math.random() * statuses.length)],
-        actions: 'Edit | Delete',
+        actions: "Edit | Delete",
       });
     }
   }

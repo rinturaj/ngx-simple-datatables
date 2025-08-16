@@ -1,33 +1,65 @@
+// Table container with CSS custom properties for theming
 .dynamic-table-container {
+  // Layout
   width: 100%;
   height: 100%; // Default height, can be overridden
-  border: 1px solid #e0e0e0;
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: white;
+  
+  // Theme variables with default values
+  --ngx-simple-dt-bg: #ffffff;
+  --ngx-simple-dt-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-border-radius: 8px;
+  --ngx-simple-dt-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --ngx-simple-dt-transition: all 0.2s ease-in-out;
+  
+  // Apply theme
+  background: var(--ngx-simple-dt-bg);
+  border: var(--ngx-simple-dt-border);
+  border-radius: var(--ngx-simple-dt-border-radius);
+  box-shadow: var(--ngx-simple-dt-box-shadow);
+  transition: var(--ngx-simple-dt-transition);
 
   .table-header {
+    // Header theme variables
+    --ngx-simple-dt-header-bg: #f8f9fa;
+    --ngx-simple-dt-header-hover-bg: #e9ecef;
+    --ngx-simple-dt-header-border: 1px solid #e0e0e0;
+    --ngx-simple-dt-header-text: #495057;
+    --ngx-simple-dt-header-height: 48px;
+    --ngx-simple-dt-header-font-weight: 600;
+    --ngx-simple-dt-header-padding: 0 16px;
+    
+    // Header styles
     position: sticky;
     top: 0;
     z-index: 10;
-    background: #f5f5f5;
-    border-bottom: 2px solid #ddd;
+    background: var(--ngx-simple-dt-header-bg);
+    border-bottom: var(--ngx-simple-dt-header-border);
     overflow: hidden;
+    height: var(--ngx-simple-dt-header-height);
+    color: var(--ngx-simple-dt-header-text);
 
     .header-row {
       display: flex;
       min-width: 100%;
       position: relative;
       height: 100%;
-      .frozen-left {
+      
+      .frozen-left, .frozen-right {
         position: sticky;
-        left: 0;
         z-index: 12;
-        background: #f5f5f5;
-        border-right: 2px solid #ccc;
+        background: var(--ngx-simple-dt-header-bg);
         display: flex;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+        transition: var(--ngx-simple-dt-transition);
+      }
+      
+      .frozen-left {
+        left: 0;
+        border-right: var(--ngx-simple-dt-header-border);
       }
 
       .center-columns {
@@ -36,31 +68,45 @@
       }
 
       .frozen-right {
-        position: sticky;
         right: 0;
-        z-index: 12;
-        background: #f5f5f5;
-        border-left: 2px solid #ccc;
-        display: flex;
+        border-left: var(--ngx-simple-dt-header-border);
       }
 
       .header-cell {
+        // Cell theme variables
+        --ngx-simple-dt-cell-padding: 0 16px;
+        --ngx-simple-dt-cell-border: 1px solid #e9ecef;
+        --ngx-simple-dt-cell-hover-bg: #f1f3f5;
+        --ngx-simple-dt-cell-active-bg: #e9ecef;
+        --ngx-simple-dt-cell-font-size: 0.875rem;
+        --ngx-simple-dt-cell-line-height: 1.5;
+        
+        // Cell styles
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 12px;
-        border-right: 1px solid #ddd;
-        background: #f5f5f5;
-        font-weight: 600;
+        padding: var(--ngx-simple-dt-cell-padding);
+        border-right: var(--ngx-simple-dt-cell-border);
+        background: inherit;
+        font-weight: var(--ngx-simple-dt-header-font-weight);
         position: relative;
         min-width: 0;
+        font-size: var(--ngx-simple-dt-cell-font-size);
+        line-height: var(--ngx-simple-dt-cell-line-height);
+        color: inherit;
+        transition: var(--ngx-simple-dt-transition);
 
         &.sortable {
           cursor: pointer;
           user-select: none;
+          transition: var(--ngx-simple-dt-transition);
 
           &:hover {
-            background: #eeeeee;
+            background: var(--ngx-simple-dt-header-hover-bg);
+          }
+          
+          &:active {
+            background: var(--ngx-simple-dt-cell-active-bg);
           }
         }
 
@@ -74,7 +120,13 @@
         .sort-icon {
           margin-left: 8px;
           font-size: 12px;
-          color: #666;
+          color: #6c757d;
+          transition: var(--ngx-simple-dt-transition);
+          
+          &.sort-asc, 
+          &.sort-desc {
+            color: #0d6efd;
+          }
         }
 
         .resize-handle {
@@ -85,9 +137,11 @@
           width: 4px;
           cursor: col-resize;
           background: transparent;
+          transition: var(--ngx-simple-dt-transition);
 
-          &:hover {
-            background: #007bff;
+          &:hover, 
+          &:active {
+            background: #0d6efd;
           }
         }
       }
@@ -95,9 +149,41 @@
   }
 
   .table-body {
+    // Body theme variables
+    --ngx-simple-dt-row-height: 48px;
+    --ngx-simple-dt-row-hover-bg: #f8f9fa;
+    --ngx-simple-dt-row-stripe-bg: #f8f9fa;
+    --ngx-simple-dt-row-active-bg: #e9ecef;
+    --ngx-simple-dt-cell-padding: 0 16px;
+    --ngx-simple-dt-cell-border: 1px solid #e9ecef;
+    --ngx-simple-dt-cell-font-size: 0.875rem;
+    --ngx-simple-dt-cell-line-height: 1.5;
+    
+    // Body styles
     position: relative;
     flex: 1;
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ced4da #f8f9fa;
+  
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f8f9fa;
+      scroll-margin-left: 100px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #ced4da;
+      border-radius: 4px;
+      
+      &:hover {
+        background-color: #adb5bd;
+      }
+    }
     -webkit-overflow-scrolling: touch;
 
     .virtual-spacer {
@@ -116,13 +202,30 @@
       min-width: fit-content;
 
       .table-row {
+        // Row theme variables
+        --ngx-simple-dt-row-bg: #ffffff;
+        --ngx-simple-dt-row-hover-bg: #f8f9fa;
+        --ngx-simple-dt-row-stripe-bg: #f8f9fa;
+        --ngx-simple-dt-row-active-bg: #e9ecef;
+        --ngx-simple-dt-row-border: 1px solid #e9ecef;
+        
+        // Row styles
         display: flex;
-        border-bottom: 1px solid #eee;
         min-width: 100%;
-        box-sizing: border-box;
-
+        border-bottom: var(--ngx-simple-dt-row-border);
+        background: var(--ngx-simple-dt-row-bg);
+        transition: var(--ngx-simple-dt-transition);
+        
+        &:nth-child(even) {
+          background: var(--ngx-simple-dt-row-stripe-bg);
+        }
+        
         &:hover {
-          background: #f9f9f9;
+          background: var(--ngx-simple-dt-row-hover-bg);
+        }
+        
+        &:active {
+          background: var(--ngx-simple-dt-row-active-bg);
         }
 
         .frozen-left {
@@ -157,17 +260,27 @@
         }
 
         .table-cell {
-          display: flex;
-          align-items: center;
-          padding: 0 12px;
-          border-right: 1px solid #eee;
+          // Cell styles
+          padding: var(--ngx-simple-dt-cell-padding);
+          border-right: var(--ngx-simple-dt-cell-border);
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          font-size: var(--ngx-simple-dt-cell-font-size);
+          line-height: var(--ngx-simple-dt-cell-line-height);
+          display: flex;
+          align-items: center;
+          transition: var(--ngx-simple-dt-transition);
           min-width: 0;
         }
       }
     }
+  }
+
+  .frozen-left .table-cell,
+  .frozen-right .table-cell {
+    background: inherit;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -182,3 +295,4 @@
     }
   }
 }
+
