@@ -5,7 +5,7 @@ on:
     branches: [master]
     # Only trigger on changes to library files
     paths:
-      - "projects/ngx-simple-datatable/**"
+      - "projects/**"
       - "package.json"
       - "ng-package.json"
       - "tsconfig.lib.json"
