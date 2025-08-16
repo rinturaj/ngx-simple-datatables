@@ -115,12 +115,12 @@ export class NgxSimpleDatatableComponent
   }
 
   ngAfterContentInit() {
-    if (!this.headerTemplate) {
-      throw new Error("ngx-simple-datatable requires a headerTemplate.");
-    }
-    if (!this.cellTemplate) {
-      throw new Error("ngx-simple-datatable requires a cellTemplate.");
-    }
+    // if (!this.headerTemplate) {
+    //   throw new Error("ngx-simple-datatable requires a headerTemplate.");
+    // }
+    // if (!this.cellTemplate) {
+    //   throw new Error("ngx-simple-datatable requires a cellTemplate.");
+    // }
   }
 
   private initializeColumns() {
