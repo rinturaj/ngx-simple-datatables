@@ -1,7 +1,7 @@
 <div class="dynamic-table-container" #tableContainer>
   <!-- Sticky Header -->
   <div class="table-header" [style.height.px]="headerHeight">
-    <div class="header-row" #headerRow (scroll)="onHeaderScroll()">
+    <div class="header-row" #headerRow (scroll)="onHeaderScroll($event)">
       <!-- Left Frozen Columns -->
       <div class="frozen-left" [style.width.px]="getLeftFrozenWidth()" *ngIf="leftFrozenColumns.length > 0"
         role="presentation">
@@ -16,18 +16,19 @@
           [tabindex]="column.sortable ? '0' : '-1'" [attr.data-column-id]="column.field">
           <ng-container *ngIf="!headerTemplate; else customHeader">
             <span class="header-text">{{ column.header }}</span>
-            <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
           </ng-container>
           <ng-template #customHeader>
-            <ng-container [ngTemplateOutlet]="headerTemplate"
-              [ngTemplateOutletContext]="{ column: column }"></ng-container>
+            <ng-container [ngTemplateOutlet]="headerTemplate" [ngTemplateOutletContext]="{ column: column }">
+            </ng-container>
+
           </ng-template>
+          <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
           <div class="resize-handle" (mousedown)="onResizeStart($event, column)"></div>
         </div>
       </div>
 
       <!-- Center Scrollable Columns -->
-      <div class="center-columns" role="presentation">
+      <div class="center-columns" #headeCenterRow role="presentation" [ngStyle]="{'transform': headerTransform}">
         <div class="header-cell" *ngFor="let column of centerColumns; trackBy: trackByColumnField; let colIndex = index"
           [style.width]="getColumnWidth(column)" [class.sortable]="column.sortable"
           [class.sort-asc]="sortState.field === column.field && sortState.direction === 'asc'"
@@ -39,12 +40,12 @@
           [tabindex]="column.sortable ? '0' : '-1'" [attr.data-column-id]="column.field">
           <ng-container *ngIf="!headerTemplate; else customHeader">
             <span class="header-text">{{ column.header }}</span>
-            <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
           </ng-container>
           <ng-template #customHeader>
             <ng-container [ngTemplateOutlet]="headerTemplate"
               [ngTemplateOutletContext]="{ column: column }"></ng-container>
           </ng-template>
+          <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
           <div class="resize-handle" (mousedown)="onResizeStart($event, column)"></div>
         </div>
       </div>
@@ -55,12 +56,12 @@
           [style.width]="getColumnWidth(column)" [class.sortable]="column.sortable" (click)="onSort(column)">
           <ng-container *ngIf="!headerTemplate; else customHeader">
             <span class="header-text">{{ column.header }}</span>
-            <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
           </ng-container>
           <ng-template #customHeader>
             <ng-container [ngTemplateOutlet]="headerTemplate"
               [ngTemplateOutletContext]="{ column: column }"></ng-container>
           </ng-template>
+          <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
           <div class="resize-handle" (mousedown)="onResizeStart($event, column)"></div>
         </div>
       </div>

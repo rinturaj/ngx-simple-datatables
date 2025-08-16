@@ -42,6 +42,8 @@ export class NgxSimpleDatatableComponent
   tableBody!: ElementRef<HTMLDivElement>;
   @ViewChild("headerRow", { static: true })
   headerRow!: ElementRef<HTMLDivElement>;
+  @ViewChild("headeCenterRow", { static: true })
+  headeCenterRow!: ElementRef<HTMLDivElement>;
 
   @ContentChild("headerTemplate", { static: true })
   headerTemplate!: TemplateRef<any>;
@@ -159,7 +161,7 @@ export class NgxSimpleDatatableComponent
       // For the header scroll (horizontal only)
       if (this.headerRow?.nativeElement) {
         this.headerRow.nativeElement.addEventListener("scroll", () =>
-          this.onHeaderScroll()
+          this.onHeaderScroll(null)
         );
       }
 
@@ -217,7 +219,6 @@ export class NgxSimpleDatatableComponent
 
     // Get scroll position
     const scrollTop = container.scrollTop;
-    const scrollLeft = container.scrollLeft;
 
     // Calculate visible rows
     const visibleRowCount =
@@ -243,26 +244,36 @@ export class NgxSimpleDatatableComponent
     // Update vertical offset for virtual scrolling
     this.offsetY = this.visibleStartIndex * this.rowHeight;
 
-    // Sync horizontal scroll with header
-    if (this.headerRow) {
-      this.headerRow.nativeElement.style.transform = `translateX(-${scrollLeft}px)`;
-    }
-
     // Trigger change detection in the next tick to avoid ExpressionChangedAfterItHasBeenCheckedError
     Promise.resolve().then(() => {
       this.cdr.detectChanges();
     });
   }
 
+  // Track last scroll time to prevent feedback loops
+  private lastScrollTime = 0;
+  private readonly SCROLL_DEBOUNCE = 10; // ms
+
+  // Track scroll position for header transform
+  public headerTransform = "translateX(0)";
+
   // Handle body scroll events
   public onBodyScroll(event: Event) {
-    const target = event.target as HTMLElement;
-    // Sync header scroll with body
-    if (this.headerRow && this.headerRow.nativeElement) {
-      this.headerRow.nativeElement.scrollLeft = target.scrollLeft;
-    }
+    if (!event) return;
 
-    // Handle virtualization
+    const now = Date.now();
+    if (now - this.lastScrollTime < this.SCROLL_DEBOUNCE) return;
+    this.lastScrollTime = now;
+
+    const target = event.target as HTMLElement;
+
+    // Sync header scroll with body (horizontally)
+    // if (this.headerRow?.nativeElement) {
+    // this.headerRow.nativeElement.scrollLeft = target.scrollLeft;
+    this.syncHorizontalScroll(target.scrollLeft);
+    // }
+
+    // Handle virtualization (vertical scrolling)
     if (this.scrollRequestId) {
       cancelAnimationFrame(this.scrollRequestId);
     }
@@ -274,11 +285,14 @@ export class NgxSimpleDatatableComponent
   }
 
   // Handle header scroll events
-  public onHeaderScroll() {
-    if (!this.headerRow?.nativeElement) return;
+  public onHeaderScroll(event: Event | null): void {
+    if (!event) return;
+    const now = Date.now();
+    if (now - this.lastScrollTime < this.SCROLL_DEBOUNCE) return;
+    this.lastScrollTime = now;
 
-    // Sync body scroll with header
-    const scrollLeft = this.headerRow.nativeElement.scrollLeft;
+    // Sync body scroll with header (horizontally)
+    const scrollLeft = (event.target as HTMLElement).scrollLeft;
     if (this.tableBody?.nativeElement) {
       this.tableBody.nativeElement.scrollLeft = scrollLeft;
     }
@@ -296,11 +310,13 @@ export class NgxSimpleDatatableComponent
     }, 50);
   }
 
-  private syncHorizontalScroll() {
-    if (!this.tableContainer || !this.headerRow) return;
+  private syncHorizontalScroll(scrollLeft: number) {
+    if (!this.tableContainer) return;
 
-    const scrollLeft = this.tableContainer.nativeElement.scrollLeft;
-    this.headerRow.nativeElement.style.transform = `translateX(-${scrollLeft}px)`;
+    // Update the transform value
+    this.headerTransform = `translateX(-${scrollLeft}px)`;
+    // Trigger change detection
+    this.cdr.detectChanges();
   }
 
   // Sorting functionality
