@@ -1,6 +1,7 @@
 # NgxSimpleDatatable
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
+.
 
 ## Features
 
@@ -23,33 +24,34 @@ npm install ngx-simple-datatable --save
 1. Import the module in your `app.module.ts`:
 
 ```typescript
-import { NgxSimpleDatatableModule } from 'ngx-simple-datatable';
+import { NgxSimpleDatatableModule } from "ngx-simple-datatable";
 
 @NgModule({
   imports: [
     // ... other imports
-    NgxSimpleDatatableModule
-  ]
+    NgxSimpleDatatableModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 2. Use the component in your template:
 
 ```html
-<ngx-simple-datatable 
-  [columns]="columns" 
+<ngx-simple-datatable
+  [columns]="columns"
   [data]="data"
   [rowHeight]="40"
-  [headerHeight]="50">
+  [headerHeight]="50"
+>
 </ngx-simple-datatable>
 ```
 
 3. Define your columns and data in your component:
 
 ```typescript
-import { Component } from '@angular/core';
-import { ColumnConfig } from 'ngx-simple-datatable';
+import { Component } from "@angular/core";
+import { ColumnConfig } from "ngx-simple-datatable";
 
 interface UserData {
   id: number;
@@ -59,21 +61,26 @@ interface UserData {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
   columns: ColumnConfig[] = [
-    { field: 'id', header: 'ID', width: '80px', freeze: 'left' },
-    { field: 'name', header: 'Name', width: '200px', sortable: true },
-    { field: 'email', header: 'Email', width: '250px' },
-    { field: 'status', header: 'Status', width: '120px' }
+    { field: "id", header: "ID", width: "80px", freeze: "left" },
+    { field: "name", header: "Name", width: "200px", sortable: true },
+    { field: "email", header: "Email", width: "250px" },
+    { field: "status", header: "Status", width: "120px" },
   ];
 
   data: UserData[] = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', status: 'Active' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', status: 'Inactive' },
+    { id: 1, name: "John Doe", email: "john@example.com", status: "Active" },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      status: "Inactive",
+    },
     // ... more data
   ];
 }
@@ -103,16 +110,16 @@ Use Angular templates to customize cell content:
   <ng-template #cellTemplate let-row="row" let-column="column">
     <ng-container [ngSwitch]="column.field">
       <ng-container *ngSwitchCase="'status'">
-        <span [ngClass]="{
+        <span
+          [ngClass]="{
           'status-active': row[column.field] === 'Active',
           'status-inactive': row[column.field] !== 'Active'
-        }">
+        }"
+        >
           {{ row[column.field] }}
         </span>
       </ng-container>
-      <ng-container *ngSwitchDefault>
-        {{ row[column.field] }}
-      </ng-container>
+      <ng-container *ngSwitchDefault> {{ row[column.field] }} </ng-container>
     </ng-container>
   </ng-template>
 </ngx-simple-datatable>
@@ -154,24 +161,24 @@ Customize the table appearance using CSS custom properties:
 
 ### Inputs
 
-| Input | Type | Description |
-|-------|------|-------------|
-| `[columns]` | `ColumnConfig[]` | Array of column configurations |
-| `[data]` | `any[]` | Array of data to display |
-| `[rowHeight]` | `number` | Height of each row in pixels |
-| `[headerHeight]` | `number` | Height of the header row in pixels |
-| `[bufferSize]` | `number` | Number of rows to render outside viewport for smooth scrolling |
+| Input            | Type             | Description                                                    |
+| ---------------- | ---------------- | -------------------------------------------------------------- |
+| `[columns]`      | `ColumnConfig[]` | Array of column configurations                                 |
+| `[data]`         | `any[]`          | Array of data to display                                       |
+| `[rowHeight]`    | `number`         | Height of each row in pixels                                   |
+| `[headerHeight]` | `number`         | Height of the header row in pixels                             |
+| `[bufferSize]`   | `number`         | Number of rows to render outside viewport for smooth scrolling |
 
 ### Column Configuration
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `field` | `string` | Property name in the data object |
-| `header` | `string` | Column header text |
-| `width` | `string | number` | Column width (px or %) |
-| `freeze` | `'left' | 'right'` | Freeze column position |
-| `sortable` | `boolean` | Whether the column is sortable |
-| `sortFn` | `(a: any, b: any) => number` | Custom sort function |
+| Property   | Type                         | Description                      |
+| ---------- | ---------------------------- | -------------------------------- | ---------------------- |
+| `field`    | `string`                     | Property name in the data object |
+| `header`   | `string`                     | Column header text               |
+| `width`    | `string                      | number`                          | Column width (px or %) |
+| `freeze`   | `'left'                      | 'right'`                         | Freeze column position |
+| `sortable` | `boolean`                    | Whether the column is sortable   |
+| `sortFn`   | `(a: any, b: any) => number` | Custom sort function             |
 
 ## Styling
 
