@@ -1,6 +1,10 @@
-# NgxSimpleDatatable
+# NgxSimpleDatatables
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
+
+
+
+![NgxSimpleDatatable Screenshot](projects/ngx-simple-datatable/assets/image.png)
 
 ## Features
 
@@ -15,7 +19,7 @@ A lightweight, high-performance Angular data table component with features like 
 ## Installation
 
 ```bash
-npm install ngx-simple-datatable --save
+npm install ngx-simple-datatables --save
 ```
 
 ## Basic Usage
@@ -23,7 +27,7 @@ npm install ngx-simple-datatable --save
 1. Import the module in your `app.module.ts`:
 
 ```typescript
-import { NgxSimpleDatatableModule } from "ngx-simple-datatable";
+import { NgxSimpleDatatableModule } from "ngx-simple-datatables";
 
 @NgModule({
   imports: [
@@ -50,7 +54,7 @@ export class AppModule {}
 
 ```typescript
 import { Component } from "@angular/core";
-import { ColumnConfig } from "ngx-simple-datatable";
+import { ColumnConfig } from "ngx-simple-datatables";
 
 interface UserData {
   id: number;
@@ -82,6 +86,33 @@ export class AppComponent {
     },
     // ... more data
   ];
+}
+```
+
+4. add styles in your `styles.css`:
+
+```css
+:root {
+  --ngx-simple-dt-bg: #efefef;
+  --ngx-simple-dt-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-border-radius: 8px;
+  --ngx-simple-dt-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --ngx-simple-dt-transition: all 0.2s ease-in-out;
+
+  --ngx-simple-dt-header-bg: #98ccff;
+  --ngx-simple-dt-header-hover-bg: #e9ecef;
+  --ngx-simple-dt-header-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-header-text: #495057;
+  --ngx-simple-dt-header-height: 48px;
+  --ngx-simple-dt-header-font-weight: 600;
+  --ngx-simple-dt-header-padding: 0 16px;
+
+  --ngx-simple-dt-cell-padding: 0 16px;
+  --ngx-simple-dt-cell-border: 1px solid #e9ecef;
+  --ngx-simple-dt-cell-hover-bg: #f1f3f5;
+  --ngx-simple-dt-cell-active-bg: #e9ecef;
+  --ngx-simple-dt-cell-font-size: 0.875rem;
+  --ngx-simple-dt-cell-line-height: 1.5;
 }
 ```
 
@@ -147,12 +178,41 @@ Customize the table appearance using CSS custom properties:
 ```css
 /* styles.css */
 :root {
-  --ngx-simple-dt-header-bg: #f8f9fa;
-  --ngx-simple-dt-header-text: #2c3e50;
-  --ngx-simple-dt-row-hover-bg: #f1f3f5;
-  --ngx-simple-dt-row-stripe-bg: #f8f9fa;
+  --ngx-simple-dt-bg: #efefef;
+  --ngx-simple-dt-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-border-radius: 8px;
+  --ngx-simple-dt-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --ngx-simple-dt-transition: all 0.2s ease-in-out;
+
+  --ngx-simple-dt-header-bg: #98ccff;
+  --ngx-simple-dt-header-hover-bg: #e9ecef;
+  --ngx-simple-dt-header-border: 1px solid #e0e0e0;
+  --ngx-simple-dt-header-text: #495057;
+  --ngx-simple-dt-header-height: 48px;
+  --ngx-simple-dt-header-font-weight: 600;
+  --ngx-simple-dt-header-padding: 0 16px;
+
   --ngx-simple-dt-cell-padding: 0 16px;
   --ngx-simple-dt-cell-border: 1px solid #e9ecef;
+  --ngx-simple-dt-cell-hover-bg: #f1f3f5;
+  --ngx-simple-dt-cell-active-bg: #e9ecef;
+  --ngx-simple-dt-cell-font-size: 0.875rem;
+  --ngx-simple-dt-cell-line-height: 1.5;
+
+  --ngx-simple-dt-row-height: 48px;
+  --ngx-simple-dt-row-hover-bg: #f8f9fa;
+  --ngx-simple-dt-row-stripe-bg: #f8f9fa;
+  --ngx-simple-dt-row-active-bg: #e9ecef;
+  --ngx-simple-dt-cell-padding: 0 16px;
+  --ngx-simple-dt-cell-border: 1px solid #e9ecef;
+  --ngx-simple-dt-cell-font-size: 0.875rem;
+  --ngx-simple-dt-cell-line-height: 1.5;
+
+  --ngx-simple-dt-row-bg: #ffffff;
+  --ngx-simple-dt-row-hover-bg: #f8f9fa;
+  --ngx-simple-dt-row-stripe-bg: #f8f9fa;
+  --ngx-simple-dt-row-active-bg: #e9ecef;
+  --ngx-simple-dt-row-border: 1px solid #e9ecef;
 }
 ```
 
