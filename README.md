@@ -2,7 +2,7 @@
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
 
-## Demo [NgxSimpleDatatable](https://ngx-simple-datatable.stackblitz.io/)
+
 
 ![NgxSimpleDatatable Screenshot](projects/ngx-simple-datatable/assets/image.png)
 
@@ -19,7 +19,7 @@ A lightweight, high-performance Angular data table component with features like 
 ## Installation
 
 ```bash
-npm install ngx-simple-datatable --save
+npm install ngx-simple-datatables --save
 ```
 
 ## Basic Usage
@@ -27,7 +27,7 @@ npm install ngx-simple-datatable --save
 1. Import the module in your `app.module.ts`:
 
 ```typescript
-import { NgxSimpleDatatableModule } from "ngx-simple-datatable";
+import { NgxSimpleDatatableModule } from "ngx-simple-datatables";
 
 @NgModule({
   imports: [
@@ -54,7 +54,7 @@ export class AppModule {}
 
 ```typescript
 import { Component } from "@angular/core";
-import { ColumnConfig } from "ngx-simple-datatable";
+import { ColumnConfig } from "ngx-simple-datatables";
 
 interface UserData {
   id: number;
