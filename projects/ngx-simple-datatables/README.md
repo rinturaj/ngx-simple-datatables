@@ -2,7 +2,7 @@
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
 
-![NgxSimpleDatatables Screenshot](projects/ngx-simple-datatables/assets/image.png)
+![NgxSimpleDatatables Screenshot](../ngx-simple-datatables/assets/image.png)
 
 ## Features
 
@@ -42,8 +42,8 @@ export class AppModule {}
 <ngx-simple-datatables
   [columns]="columns"
   [data]="data"
-  [rowHeight]="40"
-  [headerHeight]="50"
+  [rowHeight]="26"
+  [headerHeight]="26"
 >
 </ngx-simple-datatables>
 ```
@@ -228,38 +228,14 @@ Customize the table appearance using CSS custom properties:
 
 ### Column Configuration
 
-| Property   | Type                         | Description                      |
-| ---------- | ---------------------------- | -------------------------------- | ---------------------- |
-| `field`    | `string`                     | Property name in the data object |
-| `header`   | `string`                     | Column header text               |
-| `width`    | `string                      | number`                          | Column width (px or %) |
-| `freeze`   | `'left'                      | 'right'`                         | Freeze column position |
-| `sortable` | `boolean`                    | Whether the column is sortable   |
-| `sortFn`   | `(a: any, b: any) => number` | Custom sort function             |
-
-## Styling
-
-You can customize the table appearance by overriding the following CSS custom properties:
-
-```css
-.dynamic-table-container {
-  --ngx-simple-dt-bg: #ffffff;
-  --ngx-simple-dt-border: 1px solid #e0e0e0;
-  --ngx-simple-dt-border-radius: 8px;
-  --ngx-simple-dt-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --ngx-simple-dt-transition: all 0.2s ease-in-out;
-}
-
-.table-header {
-  --ngx-simple-dt-header-bg: #f8f9fa;
-  --ngx-simple-dt-header-hover-bg: #e9ecef;
-  --ngx-simple-dt-header-border: 1px solid #e0e0e0;
-  --ngx-simple-dt-header-text: #495057;
-  --ngx-simple-dt-header-height: 48px;
-  --ngx-simple-dt-header-font-weight: 600;
-  --ngx-simple-dt-header-padding: 0 16px;
-}
-```
+| Property   | Type                         | Description                      | details      |
+| ---------- | ---------------------------- | -------------------------------- | ------------ |
+| `field`    | `string`                     | Property name in the data object | string       |
+| `header`   | `string`                     | Column header text               | string       |
+| `width`    | `string \| number`           | Column width (px or %)           |              |
+| `freeze`   | `'left' \| 'right'`          | Freeze column position           |              |
+| `sortable` | `boolean`                    | Whether the column is sortable   | true / false |
+| `sortFn`   | `(a: any, b: any) => number` | Custom sort function             | function     |
 
 ## Development
 

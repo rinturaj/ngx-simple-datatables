@@ -3,10 +3,7 @@
   <div class="table-wrapper">
     <ngx-simple-datatables [columns]="columns" [data]="data" [rowHeight]="26" [headerHeight]="26">
       <ng-template #headerTemplate let-column="column">
-
         <span class="custom-header">{{ column?.header }}</span>
-
-
       </ng-template>
       <ng-template #cellTemplate let-row="row" let-column="column">
         <div [ngSwitch]="column.field">
