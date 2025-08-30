@@ -22,8 +22,8 @@
     "angular17"
   ],
   "peerDependencies": {
-    "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0"
+    "@angular/common": ">=13.0.0 <18",
+    "@angular/core": ">=13.0.0 <18"
   },
   "dependencies": {
     "tslib": "^2.3.0"

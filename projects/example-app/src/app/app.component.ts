@@ -2,12 +2,12 @@ import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { ColumnConfig } from "../../../ngx-simple-datatables/src/interfaces/column-config.interface";
 import { CommonModule } from "@angular/common";
-import { NgxSimpleDatatablesComponent } from "../../../ngx-simple-datatables/src/public-api";
+import { NgxSimpleDatatablesModule } from "../../../ngx-simple-datatables/src/public-api";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [NgxSimpleDatatablesComponent, CommonModule],
+  imports: [NgxSimpleDatatablesModule, CommonModule],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })

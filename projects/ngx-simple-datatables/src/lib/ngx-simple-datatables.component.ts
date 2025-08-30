@@ -21,8 +21,6 @@ import { ColumnConfig, SortState } from "../interfaces/column-config.interface";
 
 @Component({
   selector: "ngx-simple-datatables",
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: "./ngx-simple-datatables.component.html",
   styleUrls: ["./ngx-simple-datatables.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
