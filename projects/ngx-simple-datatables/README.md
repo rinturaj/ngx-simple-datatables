@@ -2,9 +2,7 @@
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
 
-
-
-![NgxSimpleDatatable Screenshot](projects/ngx-simple-datatable/assets/image.png)
+![NgxSimpleDatatables Screenshot](../ngx-simple-datatables/assets/image.png)
 
 ## Features
 
@@ -27,12 +25,12 @@ npm install ngx-simple-datatables --save
 1. Import the module in your `app.module.ts`:
 
 ```typescript
-import { NgxSimpleDatatableModule } from "ngx-simple-datatables";
+import { NgxSimpleDatatablesModule } from "ngx-simple-datatables";
 
 @NgModule({
   imports: [
     // ... other imports
-    NgxSimpleDatatableModule,
+    NgxSimpleDatatablesModule,
   ],
 })
 export class AppModule {}
@@ -41,13 +39,13 @@ export class AppModule {}
 2. Use the component in your template:
 
 ```html
-<ngx-simple-datatable
+<ngx-simple-datatables
   [columns]="columns"
   [data]="data"
-  [rowHeight]="40"
-  [headerHeight]="50"
+  [rowHeight]="26"
+  [headerHeight]="26"
 >
-</ngx-simple-datatable>
+</ngx-simple-datatables>
 ```
 
 3. Define your columns and data in your component:
@@ -136,7 +134,7 @@ columns: ColumnConfig[] = [
 Use Angular templates to customize cell content:
 
 ```html
-<ngx-simple-datatable [columns]="columns" [data]="data">
+<ngx-simple-datatables [columns]="columns" [data]="data">
   <ng-template #cellTemplate let-row="row" let-column="column">
     <ng-container [ngSwitch]="column.field">
       <ng-container *ngSwitchCase="'status'">
@@ -152,7 +150,7 @@ Use Angular templates to customize cell content:
       <ng-container *ngSwitchDefault> {{ row[column.field] }} </ng-container>
     </ng-container>
   </ng-template>
-</ngx-simple-datatable>
+</ngx-simple-datatables>
 ```
 
 ### Custom Header Templates
@@ -160,7 +158,7 @@ Use Angular templates to customize cell content:
 Customize header appearance and behavior:
 
 ```html
-<ngx-simple-datatable [columns]="columns" [data]="data">
+<ngx-simple-datatables [columns]="columns" [data]="data">
   <ng-template #headerTemplate let-column="column">
     <div class="custom-header">
       <i class="fas fa-info-circle" [title]="column.header"></i>
@@ -168,7 +166,7 @@ Customize header appearance and behavior:
       <i class="fas fa-sort" *ngIf="column.sortable"></i>
     </div>
   </ng-template>
-</ngx-simple-datatable>
+</ngx-simple-datatables>
 ```
 
 ### Theming
@@ -230,52 +228,28 @@ Customize the table appearance using CSS custom properties:
 
 ### Column Configuration
 
-| Property   | Type                         | Description                      |
-| ---------- | ---------------------------- | -------------------------------- | ---------------------- |
-| `field`    | `string`                     | Property name in the data object |
-| `header`   | `string`                     | Column header text               |
-| `width`    | `string                      | number`                          | Column width (px or %) |
-| `freeze`   | `'left'                      | 'right'`                         | Freeze column position |
-| `sortable` | `boolean`                    | Whether the column is sortable   |
-| `sortFn`   | `(a: any, b: any) => number` | Custom sort function             |
-
-## Styling
-
-You can customize the table appearance by overriding the following CSS custom properties:
-
-```css
-.dynamic-table-container {
-  --ngx-simple-dt-bg: #ffffff;
-  --ngx-simple-dt-border: 1px solid #e0e0e0;
-  --ngx-simple-dt-border-radius: 8px;
-  --ngx-simple-dt-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --ngx-simple-dt-transition: all 0.2s ease-in-out;
-}
-
-.table-header {
-  --ngx-simple-dt-header-bg: #f8f9fa;
-  --ngx-simple-dt-header-hover-bg: #e9ecef;
-  --ngx-simple-dt-header-border: 1px solid #e0e0e0;
-  --ngx-simple-dt-header-text: #495057;
-  --ngx-simple-dt-header-height: 48px;
-  --ngx-simple-dt-header-font-weight: 600;
-  --ngx-simple-dt-header-padding: 0 16px;
-}
-```
+| Property   | Type                         | Description                      | details      |
+| ---------- | ---------------------------- | -------------------------------- | ------------ |
+| `field`    | `string`                     | Property name in the data object | string       |
+| `header`   | `string`                     | Column header text               | string       |
+| `width`    | `string \| number`           | Column width (px or %)           |              |
+| `freeze`   | `'left' \| 'right'`          | Freeze column position           |              |
+| `sortable` | `boolean`                    | Whether the column is sortable   | true / false |
+| `sortFn`   | `(a: any, b: any) => number` | Custom sort function             | function     |
 
 ## Development
 
-Run `ng build ngx-simple-datatable` to build the library. The build artifacts will be stored in the `dist/` directory.
+Run `ng build ngx-simple-datatables` to build the library. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
-After building your library with `ng build ngx-simple-datatable`, go to the dist folder `cd dist/ngx-simple-datatable` and run `npm publish`.
+After building your library with `ng build ngx-simple-datatables`, go to the dist folder `cd dist/ngx-simple-datatables` and run `npm publish`.
 
-After building your library with `ng build ngx-simple-datatable`, go to the dist folder `cd dist/ngx-simple-datatable` and run `npm publish`.
+After building your library with `ng build ngx-simple-datatables`, go to the dist folder `cd dist/ngx-simple-datatables` and run `npm publish`.
 
 ## Running unit tests
 
-Run `ng test ngx-simple-datatable` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ngx-simple-datatables` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 

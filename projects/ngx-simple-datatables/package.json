@@ -1,12 +1,12 @@
 {
   "name": "ngx-simple-datatables",
-  "version": "1.17.0",
+  "version": "2.0.0",
   "description": "🚀 High-performance Angular Data Table Component with Virtual Scrolling, Sorting, Filtering, and Customizable Templates. Perfect for enterprise applications.",
   "author": "Rintu raj C",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rinturaj/ngx-simple-datatable.git"
+    "url": "https://github.com/rinturaj/ngx-simple-datatables.git"
   },
   "keywords": [
     "angular",
@@ -22,15 +22,15 @@
     "angular17"
   ],
   "peerDependencies": {
-    "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0"
+    "@angular/common": ">=13.0.0 <18",
+    "@angular/core": ">=13.0.0 <18"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
-  "homepage": "https://github.com/rinturaj/ngx-simple-datatable#readme",
+  "homepage": "https://github.com/rinturaj/ngx-simple-datatables#readme",
   "bugs": {
-    "url": "https://github.com/rinturaj/ngx-simple-datatable/issues"
+    "url": "https://github.com/rinturaj/ngx-simple-datatables/issues"
   }
 }

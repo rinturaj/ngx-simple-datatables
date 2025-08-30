@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-simple-datatable": {
+    "ngx-simple-datatables": {
       "projectType": "library",
-      "root": "projects/ngx-simple-datatable",
-      "sourceRoot": "projects/ngx-simple-datatable/src",
+      "root": "projects/ngx-simple-datatables",
+      "sourceRoot": "projects/ngx-simple-datatables/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ngx-simple-datatable/ng-package.json"
+            "project": "projects/ngx-simple-datatables/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-simple-datatable/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-simple-datatables/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-simple-datatable/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-simple-datatables/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,11 +27,8 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ngx-simple-datatable/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "tsConfig": "projects/ngx-simple-datatables/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
@@ -49,17 +46,13 @@
             "outputPath": "dist/example-app",
             "index": "projects/example-app/src/index.html",
             "browser": "projects/example-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/example-app/tsconfig.app.json",
             "assets": [
               "projects/example-app/src/favicon.ico",
               "projects/example-app/src/assets"
             ],
-            "styles": [
-              "projects/example-app/src/styles.css"
-            ],
+            "styles": ["projects/example-app/src/styles.css"],
             "scripts": [],
             "server": "projects/example-app/src/main.server.ts",
             "prerender": true,
@@ -112,18 +105,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/example-app/tsconfig.spec.json",
             "assets": [
               "projects/example-app/src/favicon.ico",
               "projects/example-app/src/assets"
             ],
-            "styles": [
-              "projects/example-app/src/styles.css"
-            ],
+            "styles": ["projects/example-app/src/styles.css"],
             "scripts": []
           }
         }
