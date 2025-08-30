@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rinturaj/ngx-simple-datatable.git"
+    "url": "https://github.com/rinturaj/ngx-simple-datatables.git"
   },
   "keywords": [
     "angular",
@@ -29,8 +29,8 @@
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
-  "homepage": "https://github.com/rinturaj/ngx-simple-datatable#readme",
+  "homepage": "https://github.com/rinturaj/ngx-simple-datatables#readme",
   "bugs": {
-    "url": "https://github.com/rinturaj/ngx-simple-datatable/issues"
+    "url": "https://github.com/rinturaj/ngx-simple-datatables/issues"
   }
 }

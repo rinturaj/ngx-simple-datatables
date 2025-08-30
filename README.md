@@ -2,9 +2,7 @@
 
 A lightweight, high-performance Angular data table component with features like virtual scrolling, column freezing, and customizable templates.
 
-
-
-![NgxSimpleDatatable Screenshot](projects/ngx-simple-datatable/assets/image.png)
+![NgxSimpleDatatable Screenshot](projects/ngx-simple-datatables/assets/image.png)
 
 ## Features
 
@@ -41,13 +39,13 @@ export class AppModule {}
 2. Use the component in your template:
 
 ```html
-<ngx-simple-datatable
+<ngx-simple-datatables
   [columns]="columns"
   [data]="data"
   [rowHeight]="40"
   [headerHeight]="50"
 >
-</ngx-simple-datatable>
+</ngx-simple-datatables>
 ```
 
 3. Define your columns and data in your component:
@@ -136,7 +134,7 @@ columns: ColumnConfig[] = [
 Use Angular templates to customize cell content:
 
 ```html
-<ngx-simple-datatable [columns]="columns" [data]="data">
+<ngx-simple-datatables [columns]="columns" [data]="data">
   <ng-template #cellTemplate let-row="row" let-column="column">
     <ng-container [ngSwitch]="column.field">
       <ng-container *ngSwitchCase="'status'">
@@ -152,7 +150,7 @@ Use Angular templates to customize cell content:
       <ng-container *ngSwitchDefault> {{ row[column.field] }} </ng-container>
     </ng-container>
   </ng-template>
-</ngx-simple-datatable>
+</ngx-simple-datatables>
 ```
 
 ### Custom Header Templates
@@ -160,7 +158,7 @@ Use Angular templates to customize cell content:
 Customize header appearance and behavior:
 
 ```html
-<ngx-simple-datatable [columns]="columns" [data]="data">
+<ngx-simple-datatables [columns]="columns" [data]="data">
   <ng-template #headerTemplate let-column="column">
     <div class="custom-header">
       <i class="fas fa-info-circle" [title]="column.header"></i>
@@ -168,7 +166,7 @@ Customize header appearance and behavior:
       <i class="fas fa-sort" *ngIf="column.sortable"></i>
     </div>
   </ng-template>
-</ngx-simple-datatable>
+</ngx-simple-datatables>
 ```
 
 ### Theming
@@ -265,17 +263,17 @@ You can customize the table appearance by overriding the following CSS custom pr
 
 ## Development
 
-Run `ng build ngx-simple-datatable` to build the library. The build artifacts will be stored in the `dist/` directory.
+Run `ng build ngx-simple-datatables` to build the library. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
-After building your library with `ng build ngx-simple-datatable`, go to the dist folder `cd dist/ngx-simple-datatable` and run `npm publish`.
+After building your library with `ng build ngx-simple-datatables`, go to the dist folder `cd dist/ngx-simple-datatables` and run `npm publish`.
 
-After building your library with `ng build ngx-simple-datatable`, go to the dist folder `cd dist/ngx-simple-datatable` and run `npm publish`.
+After building your library with `ng build ngx-simple-datatables`, go to the dist folder `cd dist/ngx-simple-datatables` and run `npm publish`.
 
 ## Running unit tests
 
-Run `ng test ngx-simple-datatable` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ngx-simple-datatables` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 

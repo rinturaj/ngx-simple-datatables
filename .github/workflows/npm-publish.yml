@@ -30,7 +30,7 @@ jobs:
 
       - name: Publish to NPM
         run: |
-          cd dist/ngx-simple-datatable
+          cd dist/ngx-simple-datatables
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

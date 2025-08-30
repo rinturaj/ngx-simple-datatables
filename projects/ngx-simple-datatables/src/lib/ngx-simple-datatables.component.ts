@@ -20,14 +20,14 @@ import {
 import { ColumnConfig, SortState } from "../interfaces/column-config.interface";
 
 @Component({
-  selector: "ngx-simple-datatable",
+  selector: "ngx-simple-datatables",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: "./ngx-simple-datatable.component.html",
-  styleUrls: ["./ngx-simple-datatable.component.scss"],
+  templateUrl: "./ngx-simple-datatables.component.html",
+  styleUrls: ["./ngx-simple-datatables.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgxSimpleDatatableComponent
+export class NgxSimpleDatatablesComponent
   implements OnInit, OnDestroy, AfterContentInit
 {
   @Input() columns: ColumnConfig[] = [];
@@ -77,7 +77,7 @@ export class NgxSimpleDatatableComponent
   private scrollListener: ((event: Event) => void) | null = null;
   private resizeListener: ((event: Event) => void) | null = null;
   private isBrowser: boolean;
-  private storageKey = "ngx-simple-datatable-column-widths";
+  private storageKey = "ngx-simple-datatables-column-widths";
   private scrollRequestId: number | null = null;
   private resizeTimer: ReturnType<typeof setTimeout> | null = null;
   private mouseMoveHandler: ((e: MouseEvent) => void) | null = null;
@@ -116,10 +116,10 @@ export class NgxSimpleDatatableComponent
 
   ngAfterContentInit() {
     // if (!this.headerTemplate) {
-    //   throw new Error("ngx-simple-datatable requires a headerTemplate.");
+    //   throw new Error("ngx-simple-datatables requires a headerTemplate.");
     // }
     // if (!this.cellTemplate) {
-    //   throw new Error("ngx-simple-datatable requires a cellTemplate.");
+    //   throw new Error("ngx-simple-datatables requires a cellTemplate.");
     // }
   }
 
