@@ -20,10 +20,11 @@ import {
 import { ColumnConfig, SortState } from "../interfaces/column-config.interface";
 
 @Component({
-  selector: "ngx-simple-datatables",
-  templateUrl: "./ngx-simple-datatables.component.html",
-  styleUrls: ["./ngx-simple-datatables.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "ngx-simple-datatables",
+    templateUrl: "./ngx-simple-datatables.component.html",
+    styleUrls: ["./ngx-simple-datatables.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class NgxSimpleDatatablesComponent
   implements OnInit, OnDestroy, AfterContentInit

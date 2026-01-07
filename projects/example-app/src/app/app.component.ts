@@ -5,11 +5,10 @@ import { CommonModule } from "@angular/common";
 import { NgxSimpleDatatablesModule } from "../../../ngx-simple-datatables/src/public-api";
 
 @Component({
-  selector: "app-root",
-  standalone: true,
-  imports: [NgxSimpleDatatablesModule, CommonModule],
-  templateUrl: "./app.component.html",
-  styleUrl: "./app.component.css",
+    selector: "app-root",
+    imports: [NgxSimpleDatatablesModule, CommonModule],
+    templateUrl: "./app.component.html",
+    styleUrl: "./app.component.css"
 })
 export class AppComponent {
   title = "example-app";

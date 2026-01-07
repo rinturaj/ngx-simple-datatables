@@ -6,16 +6,24 @@
         <span class="custom-header">{{ column?.header }}</span>
       </ng-template>
       <ng-template #cellTemplate let-row="row" let-column="column">
-        <div [ngSwitch]="column.field">
-          <div *ngSwitchCase="'id'">
-            <b>{{ row[column.field] }}</b>
-          </div>
-          <div *ngSwitchDefault>
-            <span>{{ row[column.field] | json }}</span>
-          </div>
-          <div *ngSwitchCase="'actions'">
-            <button>{{ row[column.field] }}</button>
-          </div>
+        <div>
+          @switch (column.field) {
+            @case ('id') {
+              <div>
+                <b>{{ row[column.field] }}</b>
+              </div>
+            }
+            @default {
+              <div>
+                <span>{{ row[column.field] | json }}</span>
+              </div>
+            }
+            @case ('actions') {
+              <div>
+                <button>{{ row[column.field] }}</button>
+              </div>
+            }
+          }
         </div>
 
       </ng-template>
